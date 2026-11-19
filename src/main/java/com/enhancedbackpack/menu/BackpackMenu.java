@@ -195,8 +195,7 @@ public class BackpackMenu extends AbstractContainerMenu {
 		if (stack.getCount() == copy.getCount()) return ItemStack.EMPTY;
 
 		slot.onTake(player, stack);
-		if (index == RESULT) player.drop(stack, false);
-		return copy;
+		if (index == RESULT && !stack.isEmpty()) player.getInventory().placeItemBackInInventory(stack);
 	}
 
 	// ---------- slots ----------
